@@ -1,0 +1,33 @@
+html, body {
+	background-color: #696D7D;
+	color: #E0E1E9;
+	display: flex;
+	flex-direction: column;
+	font-family: 'Roboto Mono', monospace;
+	text-align: center;
+	width: 100%;
+}
+
+h1 {
+	border-bottom: 15px solid #85BCC5;
+	width: 95%;
+}
+
+button {
+	background-color: #696D7D;
+	border: none;
+	color: #E0E1E9;
+	font-family: 'Roboto Mono', monospace;
+	font-size: 1em;
+}
+
+button:hover {
+	border-bottom: 1px solid #85BCC5;
+	cursor: pointer;
+}
+
+#chooser-holder {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
