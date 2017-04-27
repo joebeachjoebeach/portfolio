@@ -58,7 +58,7 @@ p {
 	font-size: 12px;
 }
 
-#maindiv {
+.maindiv, #maindiv {
 	background-color: #A03A00;
 	height: 100%;
 	width: 80%;
@@ -94,18 +94,3 @@ p {
 #textbox {
 	margin-top: 55px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
