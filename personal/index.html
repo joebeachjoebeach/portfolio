@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="description" content="Joe Beach's portfolio">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Personal Projects</title>
+	<link href="https://fonts.googleapis.com/css?family=Fira+Sans:100,300" rel="stylesheet">
+	<link rel="stylesheet" href="./css/index.css">
+	<link rel="icon" type="image/x-icon" href="../media/favicon.ico">
+	<script type="text/javascript" src="https://unpkg.com/vue"></script>
+	
+</head>
+
+<body>
+
+	<div id="app">
+
+		<header :class="{ smaller: shrink }">
+
+			<div id="heading">
+				<h1>Personal Projects</h1>
+				<div v-if="blurbShow" id="blurb">
+					<p>This is a collection of projects I've made while learning front-end web development, starting in September 2016. I've learned completely independently, using resources freely available online.</p>
+					<p>Each project has two versions. Starting in the winter of 2017, I went back to each project to re-make it using Vue.js. It was a great way not only to learn a new framework but also to refactor my original code.</p>
+				</div>
+			</div>
+
+		</header>
+		
+		<div class="sub-container" v-cloak>
+			<div class="item" v-for="entry in projects" :id="entry.id" @mouseenter="fadeBg(entry.id)" @mouseleave="unfadeBg(entry.id)">
+				<div class="sub-item">
+					<span class="item-title">{{ entry.title }}</span>
+					<p><a :href="entry.v1Url" target="_blank">{{ entry.v1Text }}</a> | <a :href="entry.vueUrl" target="_blank">Vue.js Version</a></p>
+					<p>{{ entry.v1Date }} | {{ entry.vueDate }}</p>
+					<br>
+				</div>
+				<div class="sub-item">
+					{{ entry.description }}
+					<br><br>
+					{{ entry.tools }}
+				</div>	   			
+			</div>
+		</div>
+
+	</div>
+	
+
+<script>
+
+var app = new Vue({
+	el: "#app",
+	data: {
+		shrink: false,
+		blurbShow: true,
+		projects: [
+			{
+				title: "Hangman",
+				v1Text: "Vanilla Version",
+				v1Url: "./hangman.html",
+				v1Date: "November 2016",
+				vueUrl: "./hangman-vue.html",
+				vueDate: "May 2017",
+				description: "The classic word-guessing game. You can play against the computer or against a friend.",
+				tools: "HTML5 | CSS3 | JavaScript | Vue.js",
+				id: "hangman"
+			},
+			{
+				title: "Hello!",
+				v1Text: "Vanilla Version",
+				v1Url: "./hello.html",
+				v1Date: "October 2016",
+				vueUrl: "./hello-vue.html",
+				vueDate: "May 2017",
+				description: "A \"Hello World\"-type page that displays the day and time.",
+				tools: "HTML5 | CSS3 | JavaScript | Vue.js",
+				id: "hello"
+			},
+			{
+				title: "Pixel Drawing",
+				v1Text: "Vanilla Version",
+				v1Url: "./pixel.html",
+				v1Date: "October 2016",
+				vueUrl: "./pixel-vue.html",
+				vueDate: "February 2017",
+				description: "Clicking and dragging lets the user draw with multicolored blocks.",
+				tools: "HTML5 | CSS3 | JavaScript | Vue.js",
+				id: "pixel"
+			},
+			{
+				title: "Counter",
+				v1Text: "Vanilla Version",
+				v1Url: "./counter.html",
+				v1Date: "October 2016",
+				vueUrl: "./counter-vue.html",
+				vueDate: "January 2017",
+				description: "A simple but useless app to increment or decrement a value by a chosen number.",
+				tools: "HTML5 | CSS3 | JavaScript | Vue.js",
+				id: "counter"
+			},
+			{
+				title: "Knock Knock Generator",
+				v1Text: "jQuery Version",
+				v1Url: "./knock-knock.html",
+				v1Date: "October 2016",
+				vueUrl: "./knock-knock-vue.html",
+				vueDate: "January 2017",
+				description: "It does what it says -- generates \"knock knock\" jokes.",
+				tools: "HTML5 | CSS3 | JavaScript | Vue.js | jQuery",
+				id: "knock-knock"
+			},
+			{
+				title: "Red or Blue",
+				v1Text: "Vanilla Version",
+				v1Url: "./red-blue.html",
+				v1Date: "September 2016",
+				vueUrl: "./red-blue-vue.html",
+				vueDate: "January 2017",
+				description: "A mimic of the classic \"Sometimes Red, Sometimes Blue\" site.",
+				tools: "HTML5 | CSS3 | JavaScript | Vue.js",
+				id: "red-blue"
+			}
+		]
+	},
+	methods: {
+		fadeBg: function(id) {
+			var thisItem = document.getElementById(id);
+			var a = 1;
+			var interval = setInterval(function() {
+				thisItem.style.backgroundColor = "rgba(67, 70, 80, " + a + ")";
+				a -= 0.1;
+				if (a <= 0)
+					clearInterval(interval)
+			}, 15)
+		},
+		unfadeBg: function(id) {
+			var thisItem = document.getElementById(id);
+			var a = 0;
+			var interval = setInterval(function() {
+				thisItem.style.backgroundColor = "rgba(67, 70, 80, " + a + ")";
+				a += 0.1;
+				if (a >= 1)
+					clearInterval(interval)
+			}, 15)
+		}
+	},
+	watch: {
+		shrink: function(newValue) {
+			setTimeout(function(){ this.blurbShow = !this.blurbShow; }.bind(this), 200);
+		}
+	}
+});
+
+// can't listen to body scroll in vue instance, so here's a workaround
+document.body.onscroll = function() {
+	var distanceY = window.pageYOffset;
+	var header = document.querySelector("header");
+	if (distanceY > 100) 
+		app.shrink = true;
+	else
+		app.shrink = false;
+};
+
+</script>
+	
+</body>
+	
+</html>

@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="description" content="Joe Beach's portfolio">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>WoofJS Projects</title>
+	<link href="https://fonts.googleapis.com/css?family=Fira+Sans:100,300" rel="stylesheet">
+	<link rel="stylesheet" href="../personal/css/index.css">
+	<link rel="icon" type="image/x-icon" href="../media/favicon.ico">
+	<script type="text/javascript" src="https://unpkg.com/vue"></script>
+	
+</head>
+
+<body>
+
+	<div id="app">
+
+		<header :class="{ smaller: shrink }">
+
+			<div id="heading">
+				<h1>WoofJS Projects</h1>
+				<div v-if="blurbShow" id="blurb">
+					<p>As a coding teacher at <a href="http://thecodingspace.com" target="_blank">The Coding Space</a>, I've had a number of students using <a href="https://github.com/stevekrouse/WoofJS" target="_blank">WoofJS</a> as a learning tool. It makes the transition from block-based coding, like <a href="https://scratch.mit.edu" target="_blank">Scratch</a>, to text-based coding less intimidating and more fun.</p>
+					<p>These are projects that I've made using WoofJS; some were made to prepare myself to teach with WoofJS, and others were made as contributions to the WoofJS tutorial collection. In the latter case, I've included a link to the tutorial I made.</p>
+				</div>
+				
+			</div>
+
+		</header>
+		
+		<div class="sub-container" v-cloak>
+			<div class="item" v-for="entry in projects" :id="entry.id" @mouseenter="fadeBg(entry.id)" @mouseleave="unfadeBg(entry.id)">
+				<div class="sub-item">
+					<span class="item-title"><a :href="entry.url" target="_blank">{{ entry.title }}</a></span>
+					<p v-if="entry.tutorialUrl"><a :href="entry.tutorialUrl" target="_blank">Tutorial</a></p>
+					<p>{{ entry.date }}</p>
+					<br>
+				</div>
+				<div class="sub-item">
+					{{ entry.description }}
+				</div>	   			
+			</div>
+		</div>
+
+	</div>
+	
+
+<script>
+
+var app = new Vue({
+	el: "#app",
+	data: {
+		shrink: false,
+		blurbShow: true,
+		projects: [
+			{
+				title: "Puzzle Bobble",
+				url: "./puzzle-bobble.html",
+				date: "May 2017",
+				description: "A remake of the classic arcade game, Puzzle Bobble.",
+				id: "puzzle-bobble"
+			},
+			{
+				title: "Platformer",
+				url: "./platformer.html",
+				tutorialUrl: "http://coding.space/woof/platformer.html",
+				date: "May 2017",
+				description: "A short and simple Mario-like platformer game.",
+				id: "platformer"
+			},
+			{
+				title: "Cannon Blast",
+				url: "./cannon-blast.html",
+				tutorialUrl: "http://coding.space/woof/cannon-blast.html",
+				date: "April 2017",
+				description: "A more active take on tower defense. The player has to defend their base by shooting enemies.",
+				id: "cannon-blast"
+			},
+			{
+				title: "Boss Fight",
+				url: "./boss-fight.html",
+				date: "September 2016",
+				description: "A Galaga-style space battle game where the player has to defeat a powerful boss.",
+				id: "boss-fight"
+			},
+			{
+				title: "Flappy Dot",
+				url: "./flappy-dot.html",
+				date: "September 2016",
+				description: "A mobile-ready mimic of Flappy Bird.",
+				id: "flappy-dot"
+			},
+			{
+				title: "Obstacle Dodger",
+				url: "./obstacle-dodger.html",
+				date: "September 2016",
+				description: "The player has to avoid being hit by the obstacles chasing them.",
+				id: "obstacle-dodger"
+			},
+			{
+				title: "Dot Catcher",
+				url: "./dot-catcher.html",
+				date: "September 2016",
+				description: "A mobile-ready game where the player has to catch the falling dot before it hits the ground.",
+				id: "dot-catcher"
+			},
+			{
+				title: "Bed Bug Hunter",
+				url: "./bed-bug-hunter.html",
+				date: "September 2016",
+				description: "The player has to catch all the bed bugs before the time runs out.",
+				id: "bed-bug-hunter"
+			}
+		]
+	},
+	methods: {
+		fadeBg: function(id) {
+			var thisItem = document.getElementById(id);
+			var a = 1;
+			var interval = setInterval(function() {
+				thisItem.style.backgroundColor = "rgba(67, 70, 80, " + a + ")";
+				a -= 0.1;
+				if (a <= 0)
+					clearInterval(interval)
+			}, 15)
+		},
+		unfadeBg: function(id) {
+			var thisItem = document.getElementById(id);
+			var a = 0;
+			var interval = setInterval(function() {
+				thisItem.style.backgroundColor = "rgba(67, 70, 80, " + a + ")";
+				a += 0.1;
+				if (a >= 1)
+					clearInterval(interval)
+			}, 15)
+		}
+	},
+	watch: {
+		shrink: function(newValue) {
+			setTimeout(function(){ this.blurbShow = !this.blurbShow; }.bind(this), 200);
+		}
+	}
+});
+
+// can't listen to body scroll in vue instance, so here's a workaround
+document.body.onscroll = function() {
+	var distanceY = window.pageYOffset;
+	var header = document.querySelector("header");
+	if (distanceY > 100) 
+		app.shrink = true;
+	else
+		app.shrink = false;
+};
+
+</script>
+	
+</body>
+	
+</html>

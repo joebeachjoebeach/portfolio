@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="description" content="Hangman">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" type="text/css" href="css/hangman-vue.css">
+	<link rel="icon" href="../media/favicon.ico">
+	<title>Hangman - Vue.js</title>
+</head>
+<body>
+	<div id="app">
+		<div id="headerdiv">
+			<div id="onetwocontainer">
+				<div class="onetwo" :class="{ darkgray: !twoPlayers }" @click="onePlayer">One Player</div>
+				<div class="onetwo" :class="{ darkgray: twoPlayers }" @click="twoPlayer">Two Players</div>
+			</div>
+			<div id="titlediv">
+			Hangman
+			</div>
+		</div>
+		<div id="board">
+			<canvas id="canvas"></canvas>
+		</div>
+		<div id="word">
+			<div class="blankletter" :class="{ red: lose }" v-for="letter in wordDivs" v-cloak>{{ letter }}</div>
+		</div>
+		<div id="letters">
+			<div v-for="row in letters" class="keyboard">
+				<letter-button v-for="letter in row" :letter="letter" :game-over="gameOver" :two-players="twoPlayers" :key="letter" @check="check(letter)" v-cloak></letter-button>
+			</div>
+		</div>
+		<button id="playagain" :class="{ hidden: !gameOver }" @click="restart">Play Again!</button>
+	</div>
+
+<script type="text/javascript" src="https://unpkg.com/vue"></script>
+<script>
+
+
+function randomInteger(min, max) {
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+
+Vue.component("letter-button", {
+	props: ["letter", "gameOver", "twoPlayers"],
+	template: "<button class='letter' :id='letter' :disabled='disabled' @click='clicked()'>{{ letter }}</button>",
+	data: function() {
+		return {
+			disabled: false
+		};
+	},
+	methods: {
+		clicked: function() {
+			this.disabled = true;
+			this.$emit("check");
+		}
+	},
+	watch: {
+		gameOver: function(newValue) {
+			this.disabled = newValue;
+		},
+		twoPlayers: function(newValue) {
+			this.disabled = false;
+		}
+	}
+})
+
+var app = new Vue({
+	el: "#app",
+	data: {
+		letters: [
+			["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
+			["A", "S", "D", "F", "G", "H", "J", "K", "L"],
+			["Z", "X", "C", "V", "B", "N", "M"]
+		],
+		words: [
+			"BUTTERCUP", 
+			"TANSY", 
+			"PIGEON", 
+			"REPTILE", 
+			"HAWK", 
+			"CAPYBARA", 
+			"DELICATE", 
+			"OFFICIAL", 
+			"ALIMONY", 
+			"GRANOLA",
+			"IMPERATIVE", 
+			"DELICIOUS",
+			"ANTICIPATION",
+			"APPLE",
+			"BANANA",
+			"BILIOUS",
+			"INTESTINE"
+		],
+		currentWord: "BANANA",
+		wordDivs: [],
+		guesses: 0,
+		gameOver: false,
+		lose: false,
+		twoPlayers: false
+	},
+	methods: {
+		updateCanvas: function() {
+			// set up the canvas
+			var canvas = document.getElementById("canvas");
+			var width = document.getElementById("board").offsetWidth;
+			var height = document.getElementById("board").offsetHeight;
+			canvas.width = width;
+			canvas.height = height;
+			var ctx = canvas.getContext("2d");
+			ctx.lineWidth = 2;
+			// draw the gallows
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			ctx.fillStyle = "#000000";
+			ctx.beginPath();
+			ctx.moveTo(canvas.width / 3, canvas.height / 5);
+			ctx.lineTo(canvas.width / 3, canvas.height / 10);
+			ctx.lineTo(canvas.width * 0.6, canvas.height / 10);
+			ctx.lineTo(canvas.width * 0.6, canvas.height * 0.8);
+			ctx.moveTo(canvas.width * 0.8, canvas.height * 0.8);
+			ctx.lineTo(canvas.width * 0.4, canvas.height * 0.8);
+			ctx.stroke();
+			ctx.closePath();
+
+			// if necessary, draw body parts
+			if (this.guesses >= 1) { //head
+				ctx.beginPath();
+				ctx.arc(canvas.width / 3, (canvas.height / 5) + 20, 20, 0, 2 * Math.PI);
+				ctx.stroke();
+				ctx.closePath();
+			} 
+			if (this.guesses >= 2) { //torso
+				ctx.beginPath();
+				ctx.moveTo(canvas.width / 3, (canvas.height / 5) + 40);
+				ctx.lineTo(canvas.width / 3, canvas.height / 2);
+				ctx.stroke();
+				ctx.closePath();
+			}
+			if (this.guesses >= 3) { //right leg
+				ctx.beginPath();
+				ctx.moveTo(canvas.width / 3, canvas.height / 2);
+				ctx.lineTo((canvas.width / 3) + 30, canvas.height * 0.7);
+				ctx.stroke();
+				ctx.closePath();
+			}
+			if (this.guesses >= 4) { //left leg
+				ctx.beginPath();
+				ctx.moveTo(canvas.width / 3, canvas.height / 2);
+				ctx.lineTo((canvas.width / 3) - 30, canvas.height * 0.7);
+				ctx.stroke();
+				ctx.closePath();
+			}
+			if (this.guesses >= 5) { //right arm
+				ctx.beginPath();
+				ctx.moveTo(canvas.width / 3, (canvas.height / 5) + 60);
+				ctx.lineTo((canvas.width / 3) + 35, (canvas.height / 2) + 10);
+				ctx.stroke();
+				ctx.closePath();
+			} 
+			if (this.guesses >= 6) { //left arm -- end of game
+				ctx.beginPath();
+				ctx.moveTo(canvas.width / 3, (canvas.height / 5) + 60);
+				ctx.lineTo((canvas.width / 3) - 35, (canvas.height / 2) + 10);
+				ctx.stroke();
+				ctx.closePath();
+				ctx.font = "24px Arial";
+				ctx.fillText("Game Over", 300, 30);
+				this.gameOver = true;
+				this.lose = true;
+				for (var i = 0; i < this.currentWord.length; i++) {
+					Vue.set(this.wordDivs, i, this.currentWord[i]);
+				}
+			}
+			this.guesses++
+		},
+		makeBlanks: function() {
+			for (var i = 0; i < this.currentWord.length; i++) {
+				this.wordDivs.push("");
+			}
+		},
+		check: function(letter) {
+			if (!this.gameOver) {
+				var guessCorrect = false;
+				for (var i = 0; i < this.currentWord.length; i++) {
+					if (letter == this.currentWord[i]) {
+						Vue.set(this.wordDivs, i, letter);
+						guessCorrect = true;
+					}
+				}
+				if (!this.wordDivs.some(function(value) {return value == ""})) {
+					this.gameOver = true;
+					var canvas = document.getElementById("canvas");
+					var width = document.getElementById("board").offsetWidth;
+					var height = document.getElementById("board").offsetHeight;
+					canvas.width = width;
+					canvas.height = height;
+					var ctx = canvas.getContext("2d");
+					ctx.lineWidth = 2;
+					// draw the gallows
+					ctx.clearRect(0, 0, canvas.width, canvas.height);
+					ctx.fillStyle = "#000000";
+					ctx.font = "24px Arial";
+					ctx.fillText("You Win!", 150, 150);
+				}
+				if (!guessCorrect) {
+					this.updateCanvas();
+				}
+			}
+		},
+		restart: function() {
+			this.gameOver = false;
+			this.lose = false;
+			this.guesses = 0;
+			this.wordDivs.splice(0);
+			this.updateCanvas();
+			if (!this.twoPlayers)
+				this.currentWord = this.words[randomInteger(0, this.words.length - 1)];
+			this.makeBlanks();
+		},
+		onePlayer: function() {
+			if (this.twoPlayers) {
+				this.twoPlayers = false;
+				this.restart();
+			}
+		},
+		twoPlayer: function() {
+			this.gameOver = true;
+			this.twoPlayers = true;
+			this.wordDivs.splice(0);
+			this.currentWord = prompt("Enter a word!").toUpperCase();
+			var letters = /^[A-Za-z]+$/;
+			while (!letters.test(this.currentWord))
+				this.currentWord = prompt("Only letters please! Enter a word:");
+			this.restart();
+		}
+	},
+	mounted: function() {
+		this.updateCanvas();
+		this.currentWord = this.words[randomInteger(0, this.words.length - 1)];
+		this.makeBlanks();
+	}
+})
+
+</script>
+
+</body>
+</html>

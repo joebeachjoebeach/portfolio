@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="description" content="Dot Catcher">
+<script src="https://cdn.rawgit.com/stevekrouse/WoofJS/d2c66155/dist/woof.js"></script>
+<script type="text/javascript" src="js/dot-catcher.js"></script>
+<link rel="icon" href="../media/favicon.ico">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catch the Dot!</title>
+</head>
+<body>
+<script>
+// Dot Catcher
+
+setBackdropColor("#FAEBD7");
+
+var playBox = new Rectangle({
+	color: "#50AA55",
+	width: 125,
+	height: 35,
+	x: 0,
+	y: 5,
+	showing: true,
+});
+
+var playText = new Text({
+	text: "Click to Play",
+	size: 18,
+	color: "#FFF",
+	fontFamily: "verdana",
+	textAlign: "center",
+	x: 0,
+	y: 7,
+	showing: true,
+});
+
+var score = new Text({
+	text: "Score: 0",
+	size: 16,
+	color: "#000",
+	fontFamily: "verdana",
+	textAlign: "left",
+	x: minX + 10,
+	y: maxY - 25,
+	showing: false,
+});
+
+score.scoreNumber = 0;
+
+var level = new Text({
+	text: "Level:  1",
+	size: 16,
+	color: "#000",
+	fontFamily: "verdana",
+	textAlign: "right",
+	x: maxX - 10,
+	y: maxY - 25,
+	showing: false,
+})
+
+level.levelNumber = 1;
+
+var instructions = new Text({
+	text: "Use the arrow keys or tap the screen to move left and right.",
+	size: 16,
+	color: "#000",
+	fontFamily: "verdana",
+	textAlign: "center",
+	showing: false,
+})
+
+var gameOver = new Text({
+	text: "Game Over! -- press SPACE to replay!",
+	size: 24,
+	color: "#000",
+	fontFamily: "verdana",
+	textAlign: "center",
+	x: 0,
+	y: 0,
+	showing: false,
+});
+
+var orangeCircle = new Circle({
+	color: "#E93411",
+	radius: 20,
+	y: maxY - 35,
+	x: 0,
+	showing: false,
+});
+
+orangeCircle.speed = 8;
+
+var blueBox = new Rectangle({
+	color: "#4091DF",
+	width: 75,
+	height: 30,
+	y: minY + 35,
+	x: 0,
+	showing: false,
+});
+
+var gameEnded = false;
+
+playBox.onMouseDown(() => {
+	
+	playBox.showing = false;
+	playText.showing = false;
+	score.showing = true;
+	level.showing = true;
+	instructions.showing = true;
+	blueBox.showing = true;
+	orangeCircle.x = randomX();
+	orangeCircle.showing = true;
+	mouseX = 0;
+	
+	after(2.5, "seconds", () => {
+		instructions.showing = false;
+	})
+	
+	forever(() => {
+		if (!mobile()) {
+		
+		  if (keysDown.includes("LEFT")) {
+			  blueBox.x -= 11;
+		  };
+		
+		  if (keysDown.includes("RIGHT")) {
+			  blueBox.x += 11;
+	    };
+		
+		  if (blueBox.x >= maxX) {
+			  blueBox.x = maxX;
+		  };
+		
+		  if (blueBox.x <= minX) {
+			  blueBox.x = minX;
+		  };
+	  };
+		
+		if (mobile()) {
+			
+			if (mouseX >= 0) {
+				blueBox.x += 11;
+			};
+			
+			if (mouseX <= 0) {
+				blueBox.x -= 11;
+			};
+			
+			if (blueBox.x >= maxX) {
+			  blueBox.x = maxX;
+		  };
+		
+		  if (blueBox.x <= minX) {
+			  blueBox.x = minX;
+		  };
+		};
+	});
+		
+	forever(() => {
+		
+		orangeCircle.y -= orangeCircle.speed;
+		
+		if (orangeCircle.y <= minY) {
+			gameEnded = true;
+			freeze();
+			gameOver.showing = true;
+		};
+		
+		if (orangeCircle.touching(blueBox)) {
+			orangeCircle.y = maxY;
+			orangeCircle.x = randomX();
+			score.scoreNumber ++;
+			score.text = "Score: " + score.scoreNumber;
+			if (score.scoreNumber === 7) {
+				score.scoreNumber = 0;
+				score.text = "Score: " + score.scoreNumber;
+				level.levelNumber ++;
+				level.text = "Level: " + level.levelNumber;
+				orangeCircle.speed ++;
+			};
+		};
+	})
+})
+
+onKeyDown(key => {
+	if (key == "SPACE" && gameEnded) {
+		gameOver.showing = false;
+		orangeCircle.y = maxY;
+		orangeCircle.x = randomX();
+		score.scoreNumber = 0;
+		level.levelNumber = 1;
+		score.text = "Score: " + score.scoreNumber;
+		level.text = "Level: " + level.levelNumber;
+		gameEnded = false;
+		defrost();
+	}
+});
+
+
+</script>
+</body>
+</html>
