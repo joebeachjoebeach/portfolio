@@ -89,6 +89,16 @@ ul li {
 .sub-container {
 	margin-top: 458px;
 	width: 85%;
+
+	-webkit-transition: margin-top 0.7s;
+	-moz-transition: margin-top 0.7s;
+	-ms-transition: margin-top 0.7s;
+	-o-transition: margin-top 0.7s;
+	transition: margin-top 0.7s;
+}
+
+.sub-container.higher {
+	margin-top: 358px;
 }
 
 .subheading {

@@ -10,7 +10,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Fira+Sans:100,300" rel="stylesheet">
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="icon" type="image/x-icon" href="media/favicon.ico">
-	<script type="text/javascript" src="https://unpkg.com/vue"></script>
+	<script type="text/javascript" src="https://unpkg.com/vue/dist/vue.min.js"></script>
 	
 </head>
 
@@ -43,7 +43,7 @@
 
 		</header>
 		
-   	<div class="sub-container" id="code" v-if="section == 'code'" v-cloak>
+   	<div class="sub-container" :class="{ higher: shrink }" id="code" v-if="section == 'code'" v-cloak>
    		<div class="subheading">Things I've coded</div>
    		<div class="item" v-for="entry in coding" :id="entry.id" @mouseenter="fadeBg(entry.id)" @mouseleave="unfadeBg(entry.id)">
    			<div class="sub-item">
@@ -58,7 +58,7 @@
    		</div>
    	</div>
 
-   	<div class="sub-container" id="music" v-if="section == 'music'" v-cloak>
+   	<div class="sub-container" :class="{ higher: shrink }" id="music" v-if="section == 'music'" v-cloak>
    		<div class="subheading">Music I make</div>
    		<div class="item" v-for="entry in music" :id="entry.id" @mouseenter="fadeBg(entry.id)" @mouseleave="unfadeBg(entry.id)">
    			<div class="sub-item">
@@ -70,7 +70,7 @@
    		</div>
    	</div>
 
-   	<div class="sub-container" id="resume" v-if="section == 'resume'" v-cloak>
+   	<div class="sub-container" :class="{ higher: shrink }" id="resume" v-if="section == 'resume'" v-cloak>
    		<div class="subheading">My resume</div>
    		<div class="item" v-for="entry in resume" :id="entry.id" @mouseenter="fadeBg(entry.id)" @mouseleave="unfadeBg(entry.id)">
    			<div class="sub-item">

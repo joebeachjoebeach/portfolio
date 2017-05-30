@@ -181,32 +181,22 @@ var app = new Vue({
 	},
 	watch: {
 		shrink: function(newValue) {
-			setTimeout(function(){ this.blurbShow = !this.blurbShow; }.bind(this), 200);
+			if (newValue)
+				setTimeout(function(){ this.blurbShow = !this.blurbShow; }.bind(this), 50);
+			else
+				setTimeout(function(){ this.blurbShow = !this.blurbShow; }.bind(this), 380);
 		}
 	}
 });
-
-// detect mobile device
-function mobile() {
-	return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
-}
 
 // can't listen to body scroll in vue instance, so here's a workaround
 document.body.onscroll = function() {
 	var distanceY = window.pageYOffset;
 	var header = document.querySelector("header");
-	if (!mobile()) {
-		if (distanceY > 250) 
+	if (distanceY > 80) 
 		app.shrink = true;
 	else
 		app.shrink = false;
-	}
-	else {
-		if (distanceY > 150)
-			app.shrink = true;
-		else
-			app.shrink = false;
-	}
 };
 
 
