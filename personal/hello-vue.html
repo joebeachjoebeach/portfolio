@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="description" content="Hello Today">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" type="text/css" href="css/hello.css">
+  <link rel="icon" type="image/x-icon" href="../media/favicon.ico">
+  <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.min.js"></script>
+  <title>Hello!</title>
+</head>
+<body>
+	<div id="app">
+		<div id="box">
+			<h3>Hello this {{	today }}</h3>
+			<p>It is currently {{ hours }}:{{ minutes }}</p>
+		</div>
+	</div>
+
+
+
+
+<script>
+
+var app = new Vue({
+	el: "#app",
+	data: {
+		date: new Date(),
+		days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+	},
+	methods: {
+		updateTime: function() {
+			this.date = new Date();
+		}
+	},
+	computed: {
+		today: function() {
+			return this.days[this.date.getDay()];
+		},
+		hours: function() {
+			return this.date.getHours();
+		},
+		minutes: function() {
+			var mins = this.date.getMinutes();
+			if (mins < 10)
+				return "0" + mins;
+			return mins;
+		}
+	},
+	mounted: function() {
+		this.interval = setInterval(this.updateTime, 1000);
+	},
+	beforeDestroy() {
+		clearInterval(this.interval);
+	}
+});
+
+</script>
+
+</body>
+</html>

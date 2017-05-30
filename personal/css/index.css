@@ -22,84 +22,34 @@ a:hover {
 
 h1 {
 	font-size: 3em;
-	margin: 0 0 25px 0;
-}
-
-button {
-	background-color: #434650;
-	border: none;
-	border-bottom: 1px solid #696D7D;
-	color: #E0E1E9;
-	font-family: 'Fira Sans', sans-serif;
-	font-size: 1.2em;
-}
-
-button:hover {
-	border-bottom: 1px solid #85BCC5;
-	cursor: pointer;
-}
-
-button:focus {
-	outline: 0 !important;
-	border-bottom: 1px solid #85BCC5;
+	margin: 0 0 10px 0;
 }
 
 header {
-	height: 500px;
+	height: 300px;
 	left: 0;
 	width: 100%;
 	position: fixed;
 	top: 0;
 
-	-webkit-transition: height 0.7s;
-	-moz-transition: height 0.7s;
-	-ms-transition: height 0.7s;
-	-o-transition: height 0.7s;
-	transition: height 0.7s;
+	-webkit-transition: height 0.5s;
+	-moz-transition: height 0.5s;
+	-ms-transition: height 0.5s;
+	-o-transition: height 0.5s;
+	transition: height 0.5s;
 }
 
 header.smaller {
-	height: 200px;
+	height: 100px;
 }
 
 p {
-	margin-top: 0;
-}
-
-ul {
-	list-style-type: none;
-	margin-bottom: 0;
-	padding: 0;
-	text-align: left;
-}
-
-ul li {
-	margin-bottom: 7px;
-}
-
-.position {
-	font-size: 1.1em;
-	padding-top: 5px;
-}
-
-.current {
-	border-bottom: 1px solid #85BCC5;
+	margin: 8px 20px 0px 20px;
 }
 
 .sub-container {
-	margin-top: 458px;
+	margin-top: 315px;
 	width: 85%;
-}
-
-.subheading {
-	background-color: #434650;
-	padding: 25px 0 27px 0;
-	font-size: 1.5em;
-	font-weight: 300;
-}
-
-.icon {
-	padding: 0 10px;
 }
 
 .item {
@@ -133,7 +83,7 @@ ul li {
 .item-title {
 	display: block;
 	font-size: 1.3em;
-	margin-bottom: 5px;
+	font-weight: normal;
 }
 
 #app {
@@ -148,26 +98,15 @@ ul li {
 	align-items: center;
 	background-color: #303239;
 	border-bottom: 15px solid #85BCC5;
+	box-shadow: 0 15px 25px 0 rgba(30, 30, 30, 0.3);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	height: 75%;
+	height: 100%;
 	width: 100%;
 }
 
 #blurb {
-	max-width: 650px;
+	max-width: 700px;
 	margin-bottom: 20px;
-	padding: 0 10px;
-}
-
-#chooser-holder {
-	background-color: #434650;
-	border-bottom: 5px solid #85BCC5;
-	box-shadow: 0 15px 25px 0 rgba(30, 30, 30, 0.3);
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	padding: 20px 0;
-	width: 100%;
 }

@@ -1,4 +1,8 @@
 /* Pixel Drawing */
+* {
+	margin: 0;
+	padding: 0;
+}
 
 html, body {
 	width: 100%;
@@ -13,6 +17,12 @@ div {
 	margin-top: -4px;
 	display: inline-block;
 	overflow: hidden;
+}
+
+.pixel {
+	background-color: #333;
+	width: 2.5%;
+	height: 2.5%;
 }
 
 #clear:hover {

@@ -14,7 +14,8 @@ html, body {
 	margin: auto;
 	margin-top: 20px;
 	height: 90%;
-	width: 50%;
+	width: 80%;
+	min-width: 400px;
 	padding-top: 10px;
 }
 
@@ -52,7 +53,7 @@ html, body {
 }
 
 #letters {
-	width: 80%;
+	width: 95%;
 	height: 25%;
 	margin: auto;
 }
