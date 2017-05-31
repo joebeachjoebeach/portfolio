@@ -10,7 +10,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Fira+Sans:100,300" rel="stylesheet">
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="icon" type="image/x-icon" href="media/favicon.ico">
-	<script type="text/javascript" src="https://unpkg.com/vue/dist/vue.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/vue"></script>
 	
 </head>
 
@@ -36,18 +36,19 @@
 			</div>
 
 			<div id="chooser-holder">
-	   		<button :class="{ current: section == 'code' }" @click="section = 'code'">Coding</button>
-	   		<button :class="{ current: section == 'music' }" @click="section = 'music'">Music</button>
-	   		<button :class="{ current: section == 'resume' }" @click="section = 'resume'">Resume</button>
-	   	</div>
+				<button :class="{ current: section == 'code' }" @click="section = 'code'">Coding</button>
+				<button :class="{ current: section == 'music' }" @click="section = 'music'">Music</button>
+				<button :class="{ current: section == 'resume' }" @click="section = 'resume'">Resume</button>
+			</div>
 
 		</header>
 		
-   	<div class="sub-container" :class="{ higher: shrink }" id="code" v-if="section == 'code'" v-cloak>
-   		<div class="subheading">Things I've coded</div>
-   		<div class="item" v-for="entry in coding" :id="entry.id" @mouseenter="fadeBg(entry.id)" @mouseleave="unfadeBg(entry.id)">
-   			<div class="sub-item">
-					<a :href="entry.url" target="_blank" ><span class="item-title">{{ entry.title }}</span></a>
+		<div class="sub-container" :class="{ higher: shrink }" id="code" v-if="section == 'code'" v-cloak>
+			<div class="subheading">Things I've coded</div>
+			<div class="item" v-for="entry in coding" :id="entry.id" @mouseenter="fadeBg(entry.id)" @mouseleave="unfadeBg(entry.id)">
+				<div class="sub-item">
+					<a :href="entry.url" :target="entry.target" ><span class="item-title">{{ entry.title }}</span></a>
+					<p><a v-if="entry.gitHubUrl" :href="entry.gitHubUrl" target="_blank">GitHub</a></p>
 					<p>{{ entry.date }}</p>
 				</div>
 				<div class="sub-item">
@@ -55,25 +56,45 @@
 					<br><br>
 					{{ entry.tools }}
 				</div>	   			
-   		</div>
-   	</div>
+			</div>
+		</div>
 
-   	<div class="sub-container" :class="{ higher: shrink }" id="music" v-if="section == 'music'" v-cloak>
-   		<div class="subheading">Music I make</div>
-   		<div class="item" v-for="entry in music" :id="entry.id" @mouseenter="fadeBg(entry.id)" @mouseleave="unfadeBg(entry.id)">
-   			<div class="sub-item">
+		<div class="sub-container" :class="{ higher: shrink }" id="music" v-if="section == 'music'" v-cloak>
+			<div class="subheading">Music I make</div>
+			<div class="item" v-for="entry in music" :id="entry.id" @mouseenter="fadeBg(entry.id)" @mouseleave="unfadeBg(entry.id)">
+				<div class="sub-item">
 					<a :href="entry.url" target="_blank" ><span class="item-title">{{ entry.title }}</span></a>
 				</div>
 				<div class="sub-item">
 					{{ entry.description }}
 				</div>	   			
-   		</div>
-   	</div>
+			</div>
+		</div>
 
-   	<div class="sub-container" :class="{ higher: shrink }" id="resume" v-if="section == 'resume'" v-cloak>
-   		<div class="subheading">My resume</div>
-   		<div class="item" v-for="entry in resume" :id="entry.id" @mouseenter="fadeBg(entry.id)" @mouseleave="unfadeBg(entry.id)">
-   			<div class="sub-item">
+		<div class="sub-container" :class="{ higher: shrink }" id="resume" v-if="section == 'resume'" v-cloak>
+			<div class="subheading">My resume</div>
+			<div class="item" id="skills" @mouseenter="fadeBg('skills')" @mouseleave="unfadeBg('skills')">
+				<div class="skill-item">
+					<span class="item-title"><u>Languages</u></span>
+				</div>
+				<div class="skill-item">
+					<p>{{ languages }}</p>
+				</div>
+				<div class="skill-item">
+					<span class="item-title"><u>Frameworks</u></span>
+				</div>
+				<div class="skill-item">
+					<p>{{ frameworks }}</p>
+				</div>
+				<div class="skill-item">
+					<span class="item-title"><u>Software</u></span>
+				</div>
+				<div class="skill-item">
+					<p>{{ software }}</p>
+				</div>
+			</div>
+			<div class="item" v-for="entry in resume" :id="entry.id" @mouseenter="fadeBg(entry.id)" @mouseleave="unfadeBg(entry.id)">
+				<div class="sub-item">
 					<span class="item-title"><a :href="entry.url" target="_blank">{{ entry.business }}</a></span>
 					<span class="position">{{ entry.position }}</span>
 					<ul style="text-align: center">
@@ -86,14 +107,8 @@
 						<li v-for="sentence in entry.description">{{ sentence }}</li>
 					</ul>
 				</div>	 			
-   		</div>
-   		<div class="item" id="resume-skills" @mouseenter="fadeBg('resume-skills')" @mouseleave="unfadeBg('resume-skills')">
-   			<div class="sub-item">
-   				<span class="item-title">Skills</span>
-   			</div>
-   			<div class="sub-item">{{ resumeSkills }}</div>
-   		</div>
-   	</div>
+			</div>
+		</div>
 
 	</div>
 	
