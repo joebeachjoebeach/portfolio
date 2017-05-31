@@ -2,4 +2,4 @@
 
 This is my personal web development portfolio.
 
-View it <a href="https://joebeachjoebeach.github.io/portfolio/">here</a>.
+View it <a href="http://joebea.ch" target="_blank">here</a>.
