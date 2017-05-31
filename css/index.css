@@ -28,7 +28,7 @@ h1 {
 button {
 	background-color: #434650;
 	border: none;
-	border-bottom: 1px solid #696D7D;
+	border-bottom: 1px solid #434650;
 	color: #E0E1E9;
 	font-family: 'Fira Sans', sans-serif;
 	font-size: 1.2em;
@@ -98,7 +98,7 @@ ul li {
 }
 
 .sub-container.higher {
-	margin-top: 358px;
+	margin-top: 328px;
 }
 
 .subheading {
@@ -146,6 +146,18 @@ ul li {
 	margin-bottom: 5px;
 }
 
+.skill-item {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	width: 100%;
+}
+
+.skill-item p {
+	margin-bottom: 20px;
+}
+
 #app {
 	align-items: center;
 	display: flex;
@@ -180,4 +192,8 @@ ul li {
 	justify-content: space-around;
 	padding: 20px 0;
 	width: 100%;
+}
+
+#skills {
+	flex-direction: column;
 }

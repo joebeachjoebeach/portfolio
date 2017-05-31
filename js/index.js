@@ -53,7 +53,8 @@ var app = new Vue({
 		coding: [
 			{
 				title: "This Portfolio",
-				url: "http://joebeachjoebeach.github.io/portfolio",
+				url: "https://github.com/joebeachjoebeach/portfolio",
+				target: "_blank",
 				date: "May 2017",
 				description: "Simple, minimalist responsive design with no media queries",
 				tools: "Vue.js | HTML5 | CSS3",
@@ -62,6 +63,7 @@ var app = new Vue({
 			{
 				title: "Personal Projects",
 				url: "./personal/index.html",
+				target: "_self",
 				date: "September 2016 - present",
 				description: "A collection of personal projects I've made while learning web development",
 				tools: "JavaScript | Vue.js | HTML5 | CSS",
@@ -70,6 +72,7 @@ var app = new Vue({
 			{
 				title: "WoofJS Projects",
 				url: "/woof/index.html",
+				target: "_self",
 				date: "September 2016 - present",
 				description: "A collection of games made with WoofJS",
 				tools: "JavaScript | WoofJS",
@@ -78,6 +81,7 @@ var app = new Vue({
 			{
 				title: "Contributing to WoofJS",
 				url: "https://github.com/stevekrouse/woofjs/commits?author=joebeachjoebeach",
+				target: "_blank",
 				date: "January 2017 - present",
 				description: "<a href='http://woofjs.com'>WoofJS</a> is a JavaScript framework for creating games with the HTML5 canvas. It's meant to be a stepping-stone from MIT's Scratch to \"real\" coding.",
 				tools: "Vue.js | Babel | HTML5 | CSS3",
@@ -86,6 +90,8 @@ var app = new Vue({
 			{
 				title: "coding.space Homepage",
 				url: "http://coding.space",
+				gitHubUrl: "https://github.com/stevekrouse/coding.space/blob/master/index.html",
+				target: "_blank",
 				date: "April 2017",
 				description: "A responsive homepage for an employer",
 				tools: "HTML5 | CSS3 | Bootstrap | JQuery",
@@ -94,10 +100,12 @@ var app = new Vue({
 			{
 				title: "Primed Minds Parity Interactive",
 				url: "http://primedminds.com/pp_flow.html?s=PPI8",
+				gitHubUrl: "https://github.com/joebeachjoebeach/sox-monster-primed-minds",
+				target: "_blank",
 				date: "February 2017",
 				description: "<a href='http://primedminds.com'>Primed Minds</a> is a tool designed to inspire interest in mathematics in children. This interactive allows the user to discover on their own the probability of blindly picking a pair of matching socks.",
-				tools: "HTML5 | CSS3 | Bootstrap | JQuery",
-				id: "code-codingspace"
+				tools: "HTML5 | CSS3 | jQuery | Bootstrap",
+				id: "primed-minds"
 			},
 		],
 		music: [
@@ -155,7 +163,9 @@ var app = new Vue({
 				id: "bse"
 			}
 		],
-		resumeSkills: "HTML5 | CSS3 | JavaScript | jQuery | Vue.js | WoofJS | Bootstrap | Adobe Photoshop"
+		languages: "JavaScript | HTML5 | CSS3",
+		frameworks: "Vue.js | jQuery | WoofJS | Bootstrap",
+		software: "Adobe Photoshop"
 	},
 	methods: {
 		fadeBg: function(id) {
