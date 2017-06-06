@@ -21,10 +21,10 @@
 		<header :class="{ smaller: shrink }">
 
 			<div id="heading">
-				<h1>Personal Projects</h1>
+				<h1>Learning to Code</h1>
 				<div v-if="blurbShow" id="blurb">
 					<p>This is a collection of projects I've made while learning front-end web development, starting in September 2016. I've learned completely independently, using resources freely available online.</p>
-					<p>Each project has two versions. Starting in the winter of 2017, I went back to each project to re-make it using Vue.js. It was a great way not only to learn a new framework but also to refactor my original code.</p>
+					<p>Some projects have two versions. Starting in the winter of 2017, I went back to these projects to re-make them using Vue.js. It was a great way not only to learn a new framework but also to refactor my original code.</p>
 					<p><a href="https://github.com/joebeachjoebeach/portfolio/tree/master/personal" target="_blank">View these projects on GitHub</a></p>
 				</div>
 			</div>
@@ -33,7 +33,11 @@
 		
 		<div class="sub-container" v-cloak>
 			<div class="item" v-for="entry in projects" :id="entry.id" @mouseenter="fadeBg(entry.id)" @mouseleave="unfadeBg(entry.id)">
-				<div class="sub-item">
+				<div class="sub-item" v-if="entry.tools == 'WoofJS'">
+					<span class="item-title"><a :href="entry.url" target="_blank">{{ entry.title }}</a></span>
+					<p>{{ entry.date }}</p>
+				</div>
+				<div class="sub-item" v-else>
 					<span class="item-title">{{ entry.title }}</span>
 					<p><a :href="entry.v1Url" target="_blank">{{ entry.v1Text }}</a> | <a :href="entry.vueUrl" target="_blank">Vue.js Version</a></p>
 					<p>{{ entry.v1Date }} | {{ entry.vueDate }}</p>
@@ -81,6 +85,14 @@ var app = new Vue({
 				id: "hello"
 			},
 			{
+				title: "Puzzle Bobble",
+				url: "./puzzle-bobble.html",
+				date: "May 2017",
+				description: "A remake of the classic arcade game, Puzzle Bobble.",
+				tools: "WoofJS",
+				id: "puzzle-bobble"
+			},
+			{
 				title: "Pixel Drawing",
 				v1Text: "Vanilla Version",
 				v1Url: "./pixel.html",
@@ -123,6 +135,46 @@ var app = new Vue({
 				description: "A mimic of the classic \"Sometimes Red, Sometimes Blue\" site.",
 				tools: "HTML5 | CSS3 | JavaScript | Vue.js",
 				id: "red-blue"
+			},
+			{
+				title: "Boss Fight",
+				url: "./boss-fight.html",
+				date: "September 2016",
+				description: "A Galaga-style space battle game where the player has to defeat a powerful boss.",
+				tools: "WoofJS",
+				id: "boss-fight"
+			},
+			{
+				title: "Flappy Dot",
+				url: "./flappy-dot.html",
+				date: "September 2016",
+				description: "A mobile-friendly mimic of the popular Flappy Bird game",
+				tools: "WoofJS",
+				id: "flappy-dot"
+			},
+			{
+				title: "Obstacle Dodger",
+				url: "./obstacle-dodger.html",
+				date: "September 2016",
+				description: "The player has to avoid being hit by the obstacles chasing them.",
+				tools: "WoofJS",
+				id: "obstacle-dodger"
+			},
+			{
+				title: "Dot Catcher",
+				url: "./dot-catcher.html",
+				date: "September 2016",
+				description: "A mobile-ready game where the player has to catch the falling dot before it hits the ground.",
+				tools: "WoofJS",
+				id: "dot-catcher"
+			},
+			{
+				title: "Bed Bug Hunter",
+				url: "./bed-bug-hunter.html",
+				date: "September 2016",
+				description: "The player has to catch all the bed bugs before the time runs out.",
+				tools: "WoofJS",
+				id: "bed-bug-hunter"
 			}
 		]
 	},

@@ -87,7 +87,7 @@ ul li {
 }
 
 .sub-container {
-	margin-top: 458px;
+	margin-top: 464px;
 	width: 85%;
 
 	-webkit-transition: margin-top 0.7s;
@@ -98,7 +98,7 @@ ul li {
 }
 
 .sub-container.higher {
-	margin-top: 328px;
+	margin-top: 324px;
 }
 
 .subheading {
@@ -179,7 +179,7 @@ ul li {
 
 #blurb {
 	max-width: 650px;
-	margin-bottom: 20px;
+	margin: 20px 0;
 	padding: 0 10px;
 }
 
