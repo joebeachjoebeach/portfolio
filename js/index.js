@@ -19,7 +19,6 @@ var app = new Vue({
 	el: "#app",
 	data: {
 		shrink: false,
-		blurbShow: true,
 		blurb: {
 			intro: "I'm a musician and front-end developer based in New York City.",
 			main: "After teaching ESL for over five years, I decided it was time for a career change, so in September 2016, I began to learn to code in my spare time. This portfolio is a collection of coding and music projects that I've completed to-date.",
@@ -52,33 +51,6 @@ var app = new Vue({
 		section: "code",
 		coding: [
 			{
-				title: "This Portfolio",
-				url: "https://github.com/joebeachjoebeach/portfolio",
-				target: "_blank",
-				date: "May 2017",
-				description: "Simple, minimalist responsive design with no media queries",
-				tools: "Vue.js | HTML5 | CSS3",
-				id: "portfolio"
-			},
-			{
-				title: "Personal Projects",
-				url: "./personal/index.html",
-				target: "_self",
-				date: "September 2016 - present",
-				description: "A collection of personal projects I've made while learning web development",
-				tools: "JavaScript | Vue.js | HTML5 | CSS",
-				id: "personal"
-			},
-			{
-				title: "WoofJS Projects",
-				url: "/woof/index.html",
-				target: "_self",
-				date: "September 2016 - present",
-				description: "A collection of games made with WoofJS",
-				tools: "JavaScript | WoofJS",
-				id: "woof"
-			},
-			{
 				title: "Contributing to WoofJS",
 				url: "https://github.com/stevekrouse/woofjs/commits?author=joebeachjoebeach",
 				target: "_blank",
@@ -88,14 +60,32 @@ var app = new Vue({
 				id: "woofjs"
 			},
 			{
+				title: "coding.space Curriculum Development",
+				url: "./codingspace/index.html",
+				target: "_self",
+				date: "January 2016 - present",
+				description: "A collection of contributions I've made to The Coding Space's curriculum, aimed at helping children learn to code",
+				tools: "JavaScript | Vue.js | WoofJS | HTML5 | CSS | Bootstrap",
+				id: "curriculum"
+			},
+			{
 				title: "coding.space Homepage",
 				url: "http://coding.space",
-				gitHubUrl: "https://github.com/stevekrouse/coding.space/blob/master/index.html",
+				gitHubUrl: "https://github.com/stevekrouse/coding.space/commit/def2497415c09c89d3fd18a7216003869388f3c3",
 				target: "_blank",
 				date: "April 2017",
-				description: "A responsive homepage for an employer",
-				tools: "HTML5 | CSS3 | Bootstrap | JQuery",
+				description: "Responsive homepage for The Coding Space's curriculum that helps students understand and navigate the projects",
+				tools: "HTML5 | CSS3 | Bootstrap | jQuery",
 				id: "code-codingspace"
+			},
+			{
+				title: "Learning to Code",
+				url: "./learning/index.html",
+				target: "_self",
+				date: "September 2016 - present",
+				description: "A collection of projects I've made while learning web development",
+				tools: "JavaScript | Vue.js | WoofJS | HTML5 | CSS",
+				id: "learning"
 			},
 			{
 				title: "Primed Minds Parity Interactive",
@@ -106,6 +96,15 @@ var app = new Vue({
 				description: "<a href='http://primedminds.com'>Primed Minds</a> is a tool designed to inspire interest in mathematics in children. This interactive allows the user to discover on their own the probability of blindly picking a pair of matching socks.",
 				tools: "HTML5 | CSS3 | jQuery | Bootstrap",
 				id: "primed-minds"
+			},
+			{
+				title: "This Portfolio",
+				url: "https://github.com/joebeachjoebeach/portfolio",
+				target: "_blank",
+				date: "May 2017",
+				description: "Simple, minimalist responsive design with no media queries",
+				tools: "Vue.js | HTML5 | CSS3",
+				id: "portfolio"
 			},
 		],
 		music: [
@@ -124,7 +123,7 @@ var app = new Vue({
 		],
 		resume: [
 			{
-				position: "Head of Curriculum / Coding Teacher",
+				position: "Curriculum Developer / Coding Teacher",
 				business: "The Coding Space",
 				url: "http://thecodingspace.com",
 				location: "New York, NY",
@@ -165,7 +164,7 @@ var app = new Vue({
 		],
 		languages: "JavaScript | HTML5 | CSS3",
 		frameworks: "Vue.js | jQuery | WoofJS | Bootstrap",
-		software: "Adobe Photoshop"
+		software: "Git | npm | Adobe Photoshop",
 	},
 	methods: {
 		fadeBg: function(id) {
@@ -187,14 +186,6 @@ var app = new Vue({
 				if (a >= 1)
 					clearInterval(interval);
 			}, 15);
-		}
-	},
-	watch: {
-		shrink: function(newValue) {
-			if (newValue)
-				setTimeout(function(){ this.blurbShow = !this.blurbShow; }.bind(this), 50);
-			else
-				setTimeout(function(){ this.blurbShow = !this.blurbShow; }.bind(this), 380);
 		}
 	}
 });

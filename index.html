@@ -22,11 +22,7 @@
 
 			<div id="heading">
 				<h1>Joe Beach</h1>
-				<div id="blurb" v-if="blurbShow">
-					<p>{{ blurb.intro }}</p>
-					<p>{{ blurb.main }}</p>
-					<p>{{ blurb.skills }}</p>
-				</div>
+				
 				<div id="icons">
 					<a v-for="icon in icons" :href="icon.url" target="_blank">
 						<img class="icon" :src="icon.hover ? icon.dark : icon.light" :alt="icon.alt" @mouseenter="icon.hover = !icon.hover" @mouseleave="icon.hover = !icon.hover">
@@ -39,12 +35,12 @@
 				<button :class="{ current: section == 'code' }" @click="section = 'code'">Coding</button>
 				<button :class="{ current: section == 'music' }" @click="section = 'music'">Music</button>
 				<button :class="{ current: section == 'resume' }" @click="section = 'resume'">Resume</button>
+				<button :class="{ current: section == 'about' }" @click="section = 'about'">About</button>
 			</div>
 
 		</header>
 		
 		<div class="sub-container" :class="{ higher: shrink }" id="code" v-if="section == 'code'" v-cloak>
-			<div class="subheading">Things I've coded</div>
 			<div class="item" v-for="entry in coding" :id="entry.id" @mouseenter="fadeBg(entry.id)" @mouseleave="unfadeBg(entry.id)">
 				<div class="sub-item">
 					<a :href="entry.url" :target="entry.target" ><span class="item-title">{{ entry.title }}</span></a>
@@ -60,7 +56,6 @@
 		</div>
 
 		<div class="sub-container" :class="{ higher: shrink }" id="music" v-if="section == 'music'" v-cloak>
-			<div class="subheading">Music I make</div>
 			<div class="item" v-for="entry in music" :id="entry.id" @mouseenter="fadeBg(entry.id)" @mouseleave="unfadeBg(entry.id)">
 				<div class="sub-item">
 					<a :href="entry.url" target="_blank" ><span class="item-title">{{ entry.title }}</span></a>
@@ -72,7 +67,6 @@
 		</div>
 
 		<div class="sub-container" :class="{ higher: shrink }" id="resume" v-if="section == 'resume'" v-cloak>
-			<div class="subheading">My resume</div>
 			<div class="item" id="skills" @mouseenter="fadeBg('skills')" @mouseleave="unfadeBg('skills')">
 				<div class="skill-item">
 					<span class="item-title"><u>Languages</u></span>
@@ -87,7 +81,7 @@
 					<p>{{ frameworks }}</p>
 				</div>
 				<div class="skill-item">
-					<span class="item-title"><u>Software</u></span>
+					<span class="item-title"><u>Tools and Software</u></span>
 				</div>
 				<div class="skill-item">
 					<p>{{ software }}</p>
@@ -107,6 +101,34 @@
 						<li v-for="sentence in entry.description">{{ sentence }}</li>
 					</ul>
 				</div>	 			
+			</div>
+		</div>
+
+		<div class="sub-container" :class="{ higher: shrink }" id="about" v-if="section == 'about'" v-cloak>
+			<div class="item" id="about" @mouseenter="fadeBg(about)" @mouseleave="unfadeBg(about)">
+				<div id="blurb">
+					<p>{{ blurb.intro }}</p>
+					<p>{{ blurb.main }}</p>
+					<br>
+					<div class="skill-item">
+						<span class="item-title"><u>Languages</u></span>
+					</div>
+					<div class="skill-item">
+						<p>{{ languages }}</p>
+					</div>
+					<div class="skill-item">
+						<span class="item-title"><u>Frameworks</u></span>
+					</div>
+					<div class="skill-item">
+						<p>{{ frameworks }}</p>
+					</div>
+					<div class="skill-item">
+						<span class="item-title"><u>Tools and Software</u></span>
+					</div>
+					<div class="skill-item">
+						<p>{{ software }}</p>
+					</div>
+				</div>
 			</div>
 		</div>
 
