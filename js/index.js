@@ -55,9 +55,18 @@ var app = new Vue({
 				url: "https://github.com/stevekrouse/woofjs/commits?author=joebeachjoebeach",
 				target: "_blank",
 				date: "January 2017 - present",
-				description: "<a href='http://woofjs.com'>WoofJS</a> is a JavaScript framework for creating games with the HTML5 canvas. It's meant to be a stepping-stone from MIT's Scratch to \"real\" coding.",
+				description: "<a href='http://woofjs.com'>WoofJS</a> is a JavaScript framework for creating games with the HTML5 canvas. It's meant to be a stepping-stone from MIT's Scratch to \"real\" coding, making text-based coding more accessible to children and teenagers.",
 				tools: "Vue.js | Babel | HTML5 | CSS3",
 				id: "woofjs"
+			},
+			{
+				title: "JSON Path Finder",
+				url: "https://joebeachjoebeach.github.io/json-path-finder",
+				target: "_blank",
+				date: "June 2017",
+				description: "A web-app for quickly finding the dot notation (path) of an item within a JSON object.",
+				tools: "Vue.js | HTML5 | CSS3",
+				id: "json-path-finder"
 			},
 			{
 				title: "coding.space Curriculum Development",
@@ -65,7 +74,7 @@ var app = new Vue({
 				target: "_self",
 				date: "January 2016 - present",
 				description: "A collection of contributions I've made to The Coding Space's curriculum, aimed at helping children learn to code",
-				tools: "JavaScript | Vue.js | WoofJS | HTML5 | CSS | Bootstrap",
+				tools: "JavaScript | Vue.js | HTML5 | CSS | Bootstrap",
 				id: "curriculum"
 			},
 			{
@@ -84,7 +93,7 @@ var app = new Vue({
 				target: "_self",
 				date: "September 2016 - present",
 				description: "A collection of projects I've made while learning web development",
-				tools: "JavaScript | Vue.js | WoofJS | HTML5 | CSS",
+				tools: "JavaScript | Vue.js | HTML5 | CSS",
 				id: "learning"
 			},
 			{
@@ -163,7 +172,7 @@ var app = new Vue({
 			}
 		],
 		languages: "JavaScript | HTML5 | CSS3",
-		frameworks: "Vue.js | jQuery | WoofJS | Bootstrap",
+		frameworks: "Vue.js | jQuery | Bootstrap",
 		software: "Git | npm | Adobe Photoshop",
 	},
 	methods: {
