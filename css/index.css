@@ -45,7 +45,10 @@ button:focus {
 }
 
 header {
-	height: 500px;
+	display: flex;
+	flex-direction: column;
+	height: 468px;
+	justify-content: space-between;
 	left: 0;
 	width: 100%;
 	position: fixed;
@@ -59,7 +62,7 @@ header {
 }
 
 header.smaller {
-	height: 200px;
+	height: 250px;
 }
 
 p {
@@ -169,11 +172,10 @@ ul li {
 #heading {
 	align-items: center;
 	background-color: #303239;
-	border-bottom: 15px solid #85BCC5;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	height: 75%;
+	height: 80%;
 	width: 100%;
 }
 
@@ -186,6 +188,7 @@ ul li {
 #chooser-holder {
 	background-color: #434650;
 	border-bottom: 5px solid #85BCC5;
+	border-top: 15px solid #85BCC5;
 	box-shadow: 0 15px 25px 0 rgba(30, 30, 30, 0.3);
 	display: flex;
 	flex-direction: row;

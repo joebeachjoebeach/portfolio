@@ -203,7 +203,7 @@ var app = new Vue({
 document.body.onscroll = function() {
 	var distanceY = window.pageYOffset;
 	var header = document.querySelector("header");
-	if (distanceY > 80) 
+	if (distanceY > 60) 
 		app.shrink = true;
 	else
 		app.shrink = false;
