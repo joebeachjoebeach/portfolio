@@ -24,7 +24,6 @@ var app = new Vue({
 			main: "After teaching ESL for over five years, I decided it was time for a career change, so in September 2016, I began to learn to code in my spare time. This portfolio is a collection of coding and music projects that I've completed to-date.",
 			skills: "HTML5 | CSS3 | JavaScript | jQuery | Vue.js | WoofJS | Bootstrap"
 		},
-		
 		icons: [
 			{
 				url: "https://github.com/joebeachjoebeach/",
@@ -61,7 +60,8 @@ var app = new Vue({
 			},
 			{
 				title: "JSON Path Finder",
-				url: "https://joebeachjoebeach.github.io/json-path-finder",
+				url: "http://jsonpathfinder.com",
+				gitHubUrl: "https://github.com/joebeachjoebeach/json-path-finder",
 				target: "_blank",
 				date: "June 2017",
 				description: "A web-app for quickly finding the dot notation (path) of an item within a JSON object.",
@@ -69,10 +69,30 @@ var app = new Vue({
 				id: "json-path-finder"
 			},
 			{
+				title: "Vue.js Hangman",
+				url: "https://joebeachjoebeach.github.io/hangman",
+				gitHubUrl: "https://github.com/joebeachjoebeach/hangman",
+				target: "_blank",
+				date: "February 2017",
+				description: "A mobile-first material-design hangman game built with Vue.js.",
+				tools: "Vue.js | HTML5 | CSS3",
+				id: "hangman"
+			},
+			{
+				title: "Puzzle Bobble",
+				url: "https://joebeachjoebeach.github.io/puzzle-bobble",
+				gitHubUrl: "https://github.com/joebeachjoebeach/puzzle-bobble",
+				target: "_blank",
+				date: "April 2017",
+				description: "A remake of the classic arcade game Puzzle Bobble with a modern design.",
+				tools: "WoofJS | ES6 | HTML5 | CSS3",
+				id: "puzzle-bobble"
+			},
+			{
 				title: "coding.space Curriculum Development",
 				url: "./codingspace/index.html",
-				target: "_self",
-				date: "January 2016 - present",
+				target: "_blank",
+				date: "January 2016 - June 2017",
 				description: "A collection of contributions I've made to The Coding Space's curriculum, aimed at helping children learn to code",
 				tools: "JavaScript | Vue.js | HTML5 | CSS | Bootstrap",
 				id: "curriculum"
@@ -86,25 +106,6 @@ var app = new Vue({
 				description: "Responsive homepage for The Coding Space's curriculum that helps students understand and navigate the projects",
 				tools: "HTML5 | CSS3 | Bootstrap | jQuery",
 				id: "code-codingspace"
-			},
-			{
-				title: "Learning to Code",
-				url: "./learning/index.html",
-				target: "_self",
-				date: "September 2016 - present",
-				description: "A collection of projects I've made while learning web development",
-				tools: "JavaScript | Vue.js | HTML5 | CSS",
-				id: "learning"
-			},
-			{
-				title: "Primed Minds Parity Interactive",
-				url: "http://primedminds.com/pp_flow.html?s=PPI8",
-				gitHubUrl: "https://github.com/joebeachjoebeach/sox-monster-primed-minds",
-				target: "_blank",
-				date: "February 2017",
-				description: "<a href='http://primedminds.com'>Primed Minds</a> is a tool designed to inspire interest in mathematics in children. This interactive allows the user to discover on their own the probability of blindly picking a pair of matching socks.",
-				tools: "HTML5 | CSS3 | jQuery | Bootstrap",
-				id: "primed-minds"
 			},
 			{
 				title: "This Portfolio",
@@ -136,7 +137,7 @@ var app = new Vue({
 				business: "The Coding Space",
 				url: "http://thecodingspace.com",
 				location: "New York, NY",
-				date: "Aug 2016 - Present",
+				date: "Aug 2016 - June 2017",
 				description: [
 					"Teaching children to code with Scratch, WoofJS, JavaScript, HTML, CSS, and Lego Mindstorms",
 					"Developing curriculum for learning HTML, CSS, and JavaScript",
@@ -176,7 +177,7 @@ var app = new Vue({
 		software: "Git | npm | Adobe Photoshop",
 	},
 	methods: {
-		fadeBg: function(id) {
+		fadeBg: function (id) {
 			var thisItem = document.getElementById(id);
 			var a = 1;
 			var interval = setInterval(function() {
@@ -186,7 +187,7 @@ var app = new Vue({
 					clearInterval(interval)
 			}, 15);
 		},
-		unfadeBg: function(id) {
+		unfadeBg: function (id) {
 			var thisItem = document.getElementById(id);
 			var a = 0;
 			var interval = setInterval(function() {

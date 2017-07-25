@@ -9,6 +9,7 @@ IV. the app
 		1. heading
 		2. nav bar
 	B. app content
+	C. extra styles for codingspace/index.html
 */
 
 /* I. reset */
@@ -217,4 +218,15 @@ ul li {
 		#resume-skills {
 			flex-direction: column;
 		}
+
+/* C. extra styles for codingspace/index.html */
+
+#codingspace-header {
+	border-bottom: 15px solid #85BCC5;
+	height: 245px;
+}
+
+
+
+
 
