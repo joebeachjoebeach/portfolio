@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Joe Beach</title>
 	<link href="https://fonts.googleapis.com/css?family=Fira+Sans:100,300" rel="stylesheet">
-	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/style.css">
 	<link rel="icon" type="image/x-icon" href="media/favicon.ico">
 	<script type="text/javascript" src="https://unpkg.com/vue/dist/vue.min.js"></script>
 	
@@ -18,20 +18,20 @@
 
 	<div id="app">
 
-		<header :class="{ smaller: shrink }">
+		<header>
 
-			<div id="heading">
-				<h1>Joe Beach</h1>
-				<p>front-end developer</p>
+			<div id="header-heading">
+				<h1 id="header-heading-title">Joe Beach</h1>
+				<p id="header-heading-subtitle">front-end developer</p>
 				<div id="icons">
 					<a v-for="icon in icons" :href="icon.url" target="_blank">
-						<img class="icon" :src="icon.hover ? icon.dark : icon.light" :alt="icon.alt" @mouseenter="icon.hover = !icon.hover" @mouseleave="icon.hover = !icon.hover">
+						<img class="header-heading-icon" :src="icon.hover ? icon.dark : icon.light" :alt="icon.alt" @mouseenter="icon.hover = !icon.hover" @mouseleave="icon.hover = !icon.hover">
 					</a>
 				</div>
 
 			</div>
 
-			<div id="chooser-holder">
+			<div id="header-nav">
 				<button :class="{ current: section == 'code' }" @click="section = 'code'">Coding</button>
 				<button :class="{ current: section == 'music' }" @click="section = 'music'">Music</button>
 				<button :class="{ current: section == 'resume' }" @click="section = 'resume'">Resume</button>
@@ -40,14 +40,14 @@
 
 		</header>
 		
-		<div class="sub-container" :class="{ higher: shrink }" id="code" v-if="section == 'code'" v-cloak>
-			<div class="item" v-for="entry in coding" :id="entry.id" @mouseenter="fadeBg(entry.id)" @mouseleave="unfadeBg(entry.id)">
-				<div class="sub-item">
-					<a :href="entry.url" :target="entry.target" ><span class="item-title">{{ entry.title }}</span></a>
+		<div class="content" id="code" v-if="section == 'code'" v-cloak>
+			<div class="content-item" v-for="entry in coding" :id="entry.id" @mouseenter="fadeBg(entry.id)" @mouseleave="unfadeBg(entry.id)">
+				<div class="content-item-part">
+					<a :href="entry.url" :target="entry.target" ><span class="content-item-part-title">{{ entry.title }}</span></a>
 					<p><a v-if="entry.gitHubUrl" :href="entry.gitHubUrl" target="_blank">GitHub</a></p>
 					<p>{{ entry.date }}</p>
 				</div>
-				<div class="sub-item">
+				<div class="content-item-part">
 					<span v-html="entry.description"></span>
 					<br><br>
 					{{ entry.tools }}
@@ -55,48 +55,48 @@
 			</div>
 		</div>
 
-		<div class="sub-container" :class="{ higher: shrink }" id="music" v-if="section == 'music'" v-cloak>
-			<div class="item" v-for="entry in music" :id="entry.id" @mouseenter="fadeBg(entry.id)" @mouseleave="unfadeBg(entry.id)">
-				<div class="sub-item">
-					<a :href="entry.url" target="_blank" ><span class="item-title">{{ entry.title }}</span></a>
+		<div class="content" :class="{ higher: shrink }" id="music" v-if="section == 'music'" v-cloak>
+			<div class="content-item" v-for="entry in music" :id="entry.id" @mouseenter="fadeBg(entry.id)" @mouseleave="unfadeBg(entry.id)">
+				<div class="content-item-part">
+					<a :href="entry.url" target="_blank" ><span class="content-item-part-title">{{ entry.title }}</span></a>
 				</div>
-				<div class="sub-item">
+				<div class="content-item-part">
 					{{ entry.description }}
 				</div>	   			
 			</div>
 		</div>
 
-		<div class="sub-container" :class="{ higher: shrink }" id="resume" v-if="section == 'resume'" v-cloak>
-			<div class="item" id="skills" @mouseenter="fadeBg('skills')" @mouseleave="unfadeBg('skills')">
-				<div class="skill-item">
-					<span class="item-title"><u>Languages</u></span>
+		<div class="content" :class="{ higher: shrink }" id="resume" v-if="section == 'resume'" v-cloak>
+			<div class="content-item" id="resume-skills" @mouseenter="fadeBg('resume-skills')" @mouseleave="unfadeBg('resume-skills')">
+				<div class="content-item-skill">
+					<span class="content-item-part-title"><u>Languages</u></span>
 				</div>
-				<div class="skill-item">
-					<p>{{ languages }}</p>
+				<div class="content-item-skill">
+					<p class="content-item-skill-p">{{ languages }}</p>
 				</div>
-				<div class="skill-item">
-					<span class="item-title"><u>Frameworks</u></span>
+				<div class="content-item-skill">
+					<span class="content-item-part-title"><u>Frameworks</u></span>
 				</div>
-				<div class="skill-item">
-					<p>{{ frameworks }}</p>
+				<div class="content-item-skill">
+					<p class="content-item-skill-p">{{ frameworks }}</p>
 				</div>
-				<div class="skill-item">
-					<span class="item-title"><u>Tools and Software</u></span>
+				<div class="content-item-skill">
+					<span class="content-item-part-title"><u>Tools and Software</u></span>
 				</div>
-				<div class="skill-item">
-					<p>{{ software }}</p>
+				<div class="content-item-skill">
+					<p class="content-item-skill-p">{{ software }}</p>
 				</div>
 			</div>
-			<div class="item" v-for="entry in resume" :id="entry.id" @mouseenter="fadeBg(entry.id)" @mouseleave="unfadeBg(entry.id)">
-				<div class="sub-item">
-					<span class="item-title"><a :href="entry.url" target="_blank">{{ entry.business }}</a></span>
-					<span class="position">{{ entry.position }}</span>
-					<ul style="text-align: center">
+			<div class="content-item" v-for="entry in resume" :id="entry.id" @mouseenter="fadeBg(entry.id)" @mouseleave="unfadeBg(entry.id)">
+				<div class="content-item-part">
+					<span class="content-item-part-title"><a :href="entry.url" target="_blank">{{ entry.business }}</a></span>
+					<span class="content-item-part-position">{{ entry.position }}</span>
+					<ul class="content-item-part-data">
 						<li>{{ entry.location }}</li>
 						<li>{{ entry.date }}</li>
 					</ul>
 				</div>
-				<div class="sub-item">
+				<div class="content-item-part">
 					<ul>
 						<li v-for="sentence in entry.description">{{ sentence }}</li>
 					</ul>
@@ -104,28 +104,28 @@
 			</div>
 		</div>
 
-		<div class="sub-container" :class="{ higher: shrink }" id="about" v-if="section == 'about'" v-cloak>
-			<div class="item" id="about" @mouseenter="fadeBg(about)" @mouseleave="unfadeBg(about)">
-				<div id="blurb">
+		<div class="content" :class="{ higher: shrink }" id="about" v-if="section == 'about'" v-cloak>
+			<div class="content-item" id="about">
+				<div id="content-item-blurb">
 					<p>{{ blurb.intro }}</p>
 					<p>{{ blurb.main }}</p>
 					<br>
-					<div class="skill-item">
-						<span class="item-title"><u>Languages</u></span>
+					<div class="content-item-skill">
+						<span class="content-item-part-title"><u>Languages</u></span>
 					</div>
-					<div class="skill-item">
+					<div class="content-item-skill">
 						<p>{{ languages }}</p>
 					</div>
-					<div class="skill-item">
-						<span class="item-title"><u>Frameworks</u></span>
+					<div class="content-item-skill">
+						<span class="content-item-part-title"><u>Frameworks</u></span>
 					</div>
-					<div class="skill-item">
+					<div class="content-item-skill">
 						<p>{{ frameworks }}</p>
 					</div>
-					<div class="skill-item">
-						<span class="item-title"><u>Tools and Software</u></span>
+					<div class="content-item-skill">
+						<span class="content-item-part-title"><u>Tools and Software</u></span>
 					</div>
-					<div class="skill-item">
+					<div class="content-item-skill">
 						<p>{{ software }}</p>
 					</div>
 				</div>

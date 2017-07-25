@@ -1,0 +1,220 @@
+/* 
+Joe Beach - Portfolio
+-- Table of Contents --
+I. reset
+II. global element selectors
+III. js-applied helper classes
+IV. the app
+	A. header
+		1. heading
+		2. nav bar
+	B. app content
+*/
+
+/* I. reset */
+* {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* II. global element selectors */
+html, body {
+	align-items: center;
+	background-color: #303239;
+	color: #E0E1E9;
+	display: flex;
+	flex-direction: column;
+	font-family: 'Fira Sans', sans-serif;
+	text-align: center;
+	width: 100%;
+}
+
+a {
+	color: #FFFAE2;
+	text-decoration: none;
+}
+
+a:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+button {
+	background-color: #434650;
+	border-bottom: 1px solid #434650;
+	color: #E0E1E9;
+	font-family: 'Fira Sans', sans-serif;
+	font-size: 1.2em;
+}
+
+button:hover {
+	border-bottom: 1px solid #85BCC5;
+	cursor: pointer;
+}
+
+button:focus {
+	border-bottom: 1px solid #85BCC5;
+	outline: 0 !important;
+}
+
+ul {
+	list-style-type: none;
+	text-align: left;
+}
+
+ul li {
+	margin-bottom: 7px;
+}
+
+/* III. js-applied helper classes */
+.current {
+	border-bottom: 1px solid #85BCC5;
+}
+
+/* IV. the app */
+#app {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	font-weight: 100;
+	width: 100%;
+}
+
+	/* A. header */
+	header {
+		display: flex;
+		flex-direction: column;
+		height: 260px;
+		justify-content: space-between;
+		left: 0;
+		width: 100%;
+		position: fixed;
+		top: 0;
+
+		-webkit-transition: height 0.7s;
+		-moz-transition: height 0.7s;
+		-ms-transition: height 0.7s;
+		-o-transition: height 0.7s;
+		transition: height 0.7s;
+	}
+
+		/* 1. heading */
+		#header-heading {
+			align-items: center;
+			background-color: #303239;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			height: 80%;
+			width: 100%;
+		}
+
+			#header-heading-title {
+				font-size: 3em;
+			}
+
+			#header-heading-subtitle {
+				margin: 10px 0 20px 0;
+			}
+
+			.header-heading-icon {
+				padding: 0 10px;
+			}
+
+		/* 2. nav bar */
+		#header-nav {
+			background-color: #434650;
+			border-bottom: 5px solid #85BCC5;
+			border-top: 15px solid #85BCC5;
+			box-shadow: 0 15px 25px 0 rgba(30, 30, 30, 0.3);
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			padding: 20px 0;
+			width: 100%;
+		}
+
+	/* B. app content */
+	/* each .content is a separate section (e.g. 'resume' or 'about') */
+	.content {
+		margin-top: 260px;
+		width: 85%;
+
+		-webkit-transition: margin-top 0.7s;
+		-moz-transition: margin-top 0.7s;
+		-ms-transition: margin-top 0.7s;
+		-o-transition: margin-top 0.7s;
+		transition: margin-top 0.7s;
+	}
+
+		/* individual item in each list */
+		.content-item {
+			background-color: rgba(67, 70, 80, 1);
+			border-top: 1px solid #BF6D44;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			font-size: 1em;
+			justify-content: space-around;
+			padding: 15px 0;
+			width: 100%;
+		}
+
+			/* each item has at least two parts -- title and description */
+			.content-item-part {
+				align-items: center;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				margin-bottom: 5px;
+				max-width: 300px;
+				min-height: 40px;
+				min-width: 250px;
+				padding: 0 5px;
+			}
+
+				.content-item-part-title {
+					display: block;
+					font-size: 1.3em;
+					margin-bottom: 5px;
+				}
+
+				/* position for 'resume' section */
+				.content-item-part-position {
+					font-size: 1.1em;
+					padding-top: 5px;
+				}
+
+				/* data (date, location) for 'resume' section */
+				.content-item-part-data {
+					margin: 10px 0 0 0;
+					text-align: center;
+				}
+
+			/* skill in 'resume' and 'about' */
+			.content-item-skill {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: space-around;
+				width: 100%;
+			}
+
+				/* p element in skill */
+				.content-item-skill-p {
+					margin-bottom: 20px;
+				}
+
+			/* 'about' blurb */
+			#content-item-blurb {
+				max-width: 650px;
+				margin: 20px 0;
+				padding: 0 10px;
+			}
+
+		/* skills section in 'resume' (doesn't fit into above tree structure...) */
+		#resume-skills {
+			flex-direction: column;
+		}
+

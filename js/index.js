@@ -132,7 +132,7 @@ var app = new Vue({
 		],
 		resume: [
 			{
-				position: "Curriculum Developer / Coding Teacher",
+				position: "Curriculum Developer",
 				business: "The Coding Space",
 				url: "http://thecodingspace.com",
 				location: "New York, NY",
@@ -198,28 +198,3 @@ var app = new Vue({
 		}
 	}
 });
-
-// can't listen to body scroll in vue instance, so here's a workaround
-document.body.onscroll = function() {
-	var distanceY = window.pageYOffset;
-	var header = document.querySelector("header");
-	if (distanceY > 60) 
-		app.shrink = true;
-	else
-		app.shrink = false;
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
