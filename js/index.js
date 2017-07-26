@@ -20,8 +20,8 @@ var app = new Vue({
 	data: {
 		shrink: false,
 		blurb: {
-			intro: "I'm a musician and front-end developer based in New York City.",
-			main: "After teaching ESL for over five years, I decided it was time for a career change, so in September 2016, I began to learn to code in my spare time. This portfolio is a collection of coding and music projects that I've completed to-date.",
+			intro: "I'm a front-end developer and musician based in New York City.",
+			main: "This portfolio is a collection of coding and music projects that I've completed to-date.",
 			skills: "HTML5 | CSS3 | JavaScript | jQuery | Vue.js | WoofJS | Bootstrap"
 		},
 		icons: [
