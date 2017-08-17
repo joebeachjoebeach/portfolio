@@ -13,7 +13,7 @@ if (document.images) {
 	linkedInDark.src = "media/linkedin-dark.png";
 	emailLight.src = "media/email-light.png";
 	emailDark.src = "media/email-dark.png";		
-};
+}
 
 var app = new Vue({
 	el: "#app",
@@ -22,7 +22,6 @@ var app = new Vue({
 		blurb: {
 			intro: "I'm a front-end developer and musician based in New York City.",
 			main: "This portfolio is a collection of coding and music projects that I've completed to-date.",
-			skills: "HTML5 | CSS3 | JavaScript | jQuery | Vue.js | WoofJS | Bootstrap"
 		},
 		icons: [
 			{
@@ -57,6 +56,16 @@ var app = new Vue({
 				description: "<a href='http://woofjs.com'>WoofJS</a> is a JavaScript framework for creating games with the HTML5 canvas. It's meant to be a stepping-stone from MIT's Scratch to \"real\" coding, making text-based coding more accessible to children and teenagers.",
 				tools: "Vue.js | Babel | HTML5 | CSS3",
 				id: "woofjs"
+			},
+			{
+				title: "Plan Your Week",
+				url: "http://joebeachjoebeach.github.io/plan-your-week",
+				gitHubUrl: "https://github.com/joebeachjoebeach/plan-your-week",
+				target: "_blank",
+				date: "August 2017",
+				description: "A time-management desktop web-app that helps you effectively budget your time and get things done - modeled after my personal time management method.",
+				tools: "React | Redux | react-router | react-dnd | HTML5 | CSS3",
+				id: "plan-your-week"
 			},
 			{
 				title: "JSON Path Finder",
@@ -173,7 +182,7 @@ var app = new Vue({
 			}
 		],
 		languages: "JavaScript | HTML5 | CSS3",
-		frameworks: "Vue.js | jQuery | Bootstrap",
+		frameworks: "React | Redux | Vue.js | jQuery | Bootstrap",
 		software: "Git | npm | Adobe Photoshop",
 	},
 	methods: {
@@ -184,7 +193,7 @@ var app = new Vue({
 				thisItem.style.backgroundColor = "rgba(67, 70, 80, " + a + ")";
 				a -= 0.1;
 				if (a <= 0)
-					clearInterval(interval)
+					clearInterval(interval);
 			}, 15);
 		},
 		unfadeBg: function (id) {
