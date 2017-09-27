@@ -68,6 +68,16 @@ var app = new Vue({
 				id: "plan-your-week"
 			},
 			{
+				title: "Game of Thrones Card Game",
+				url: "https://joebeachjoebeach.github.io/got-cards",
+				gitHubUrl: "https://github.com/joebeachjoebeach/got-cards",
+				target: "_blank",
+				date: "September 2017",
+				description: "A card game with characters and houses from the Game of Thrones universe utilizing <a href='https://anapioficeandfire.com'>An API of Ice and Fire</a>.",
+				tools: "React | HTML5 | CSS3 | AJAX",
+				id: "got-cards"
+			},
+			{
 				title: "JSON Path Finder",
 				url: "http://jsonpathfinder.com",
 				gitHubUrl: "https://github.com/joebeachjoebeach/json-path-finder",
