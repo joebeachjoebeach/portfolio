@@ -20,8 +20,8 @@ var app = new Vue({
 	data: {
 		shrink: false,
 		blurb: {
-			intro: "I'm a front-end developer and musician based in New York City.",
-			main: "This portfolio is a collection of coding and music projects that I've completed to-date.",
+			intro: "I'm a web developer and musician based in New York City.",
+			main: "This portfolio is a collection of programming and music projects that I've completed to-date.",
 		},
 		icons: [
 			{
@@ -54,18 +54,28 @@ var app = new Vue({
 				target: "_blank",
 				date: "January 2017 - present",
 				description: "<a href='http://woofjs.com'>WoofJS</a> is a JavaScript framework for creating games with the HTML5 canvas. It's meant to be a stepping-stone from MIT's Scratch to \"real\" coding, making text-based coding more accessible to children and teenagers.",
-				tools: "Vue.js | Babel | HTML5 | CSS3",
+				tools: "Vue.js | ES6 | HTML5 | CSS3",
 				id: "woofjs"
 			},
 			{
 				title: "Plan Your Week",
-				url: "http://joebeachjoebeach.github.io/plan-your-week",
+				url: "https://joebeachjoebeach.github.io/plan-your-week",
 				gitHubUrl: "https://github.com/joebeachjoebeach/plan-your-week",
 				target: "_blank",
 				date: "August 2017",
 				description: "A time-management desktop web-app that helps you effectively budget your time and get things done - modeled after my personal time management method.",
 				tools: "React | Redux | react-router | react-dnd | HTML5 | CSS3",
 				id: "plan-your-week"
+			},
+			{
+				title: "Microbe Log Microblog",
+				url: "https://microbe-log-microblog.herokuapp.com/",
+				gitHubUrl: "https://github.com/joebeachjoebeach/microbe-log-microblog",
+				target: "_blank",
+				date: "October 2017",
+				description: "A whimsical Twitter-like microblog service that takes advantage of the fact that 'microblog' sounds like 'microbe log.'",
+				tools: "Python | Flask | PostgreSQL | JavaScript | HTML5 | SCSS | PostCSS",
+				id: "microbe-log-microblog"
 			},
 			{
 				title: "Game of Thrones Card Game",
@@ -83,7 +93,7 @@ var app = new Vue({
 				gitHubUrl: "https://github.com/joebeachjoebeach/json-path-finder",
 				target: "_blank",
 				date: "June 2017",
-				description: "A web-app for quickly finding the dot notation (path) of an item within a JSON object.",
+				description: "A web-app for quickly finding the dot notation (path) of an item within a JSON object. I built this to help students of mine who were new to programming become more comfortable working with JSON.",
 				tools: "Vue.js | HTML5 | CSS3",
 				id: "json-path-finder"
 			},
@@ -152,6 +162,19 @@ var app = new Vue({
 		],
 		resume: [
 			{
+				position: "Attendee",
+				business: "Recurse Center",
+				url: "https://recurse.com",
+				location: "New York, NY",
+				date: "September 2017 - Present",
+				description: [
+					"Learning back-end web development with Python and Flask",
+					"Diving deeper into back-end development through building a lightweight back-end web framework",
+					"Learning, collaborating, and studying with others in a self-directed environment"
+				],
+				id: "resume-recurse"
+			},
+			{
 				position: "Curriculum Developer",
 				business: "The Coding Space",
 				url: "http://thecodingspace.com",
@@ -191,12 +214,12 @@ var app = new Vue({
 				id: "bse"
 			}
 		],
-		languages: "JavaScript | HTML5 | CSS3",
-		frameworks: "React | Redux | Vue.js | jQuery | Bootstrap",
+		languages: "JavaScript | Python | HTML5 | CSS3",
+		frameworks: "React | Redux | Vue.js | Flask | SASS",
 		software: "Git | npm | Adobe Photoshop",
 	},
 	methods: {
-		fadeBg: function (id) {
+		fadeBg: function(id) {
 			var thisItem = document.getElementById(id);
 			var a = 1;
 			var interval = setInterval(function() {
@@ -206,7 +229,7 @@ var app = new Vue({
 					clearInterval(interval);
 			}, 15);
 		},
-		unfadeBg: function (id) {
+		unfadeBg: function(id) {
 			var thisItem = document.getElementById(id);
 			var a = 0;
 			var interval = setInterval(function() {

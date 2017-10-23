@@ -22,7 +22,7 @@
 
 			<div id="header-heading">
 				<h1 id="header-heading-title">Joe Beach</h1>
-				<p id="header-heading-subtitle">front-end developer</p>
+				<p id="header-heading-subtitle">web developer</p>
 				<div id="icons">
 					<a v-for="icon in icons" :href="icon.url" target="_blank">
 						<img class="header-heading-icon" :src="icon.hover ? icon.dark : icon.light" :alt="icon.alt" @mouseenter="icon.hover = !icon.hover" @mouseleave="icon.hover = !icon.hover">
@@ -32,7 +32,7 @@
 			</div>
 
 			<div id="header-nav">
-				<button :class="{ current: section == 'code' }" @click="section = 'code'">Coding</button>
+				<button :class="{ current: section == 'code' }" @click="section = 'code'">Programming</button>
 				<button :class="{ current: section == 'music' }" @click="section = 'music'">Music</button>
 				<button :class="{ current: section == 'resume' }" @click="section = 'resume'">Resume</button>
 				<button :class="{ current: section == 'about' }" @click="section = 'about'">About</button>
