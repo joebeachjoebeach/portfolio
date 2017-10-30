@@ -68,6 +68,15 @@ var app = new Vue({
 				id: "plan-your-week"
 			},
 			{
+				title: "Dog API Wrapper for Python",
+				url: "https://github.com/joebeachjoebeach/dog-api",
+				target: "_blank",
+				date: "October 2017",
+				description: "A Python wrapper for Dog CEO's <a href='https://dog.ceo/dog-api/' target='_blank'>Dog API</a>.",
+				tools: "Python | pytest",
+				id: "dog-api"
+			},
+			{
 				title: "Microbe Log Microblog",
 				url: "https://microbe-log-microblog.herokuapp.com/",
 				gitHubUrl: "https://github.com/joebeachjoebeach/microbe-log-microblog",
@@ -83,7 +92,7 @@ var app = new Vue({
 				gitHubUrl: "https://github.com/joebeachjoebeach/got-cards",
 				target: "_blank",
 				date: "September 2017",
-				description: "A card game with characters and houses from the Game of Thrones universe utilizing <a href='https://anapioficeandfire.com'>An API of Ice and Fire</a>.",
+				description: "A card game with characters and houses from the Game of Thrones universe utilizing <a href='https://anapioficeandfire.com' target='_blank'>An API of Ice and Fire</a>.",
 				tools: "React | HTML5 | CSS3 | AJAX",
 				id: "got-cards"
 			},
