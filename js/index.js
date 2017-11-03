@@ -73,7 +73,7 @@ var app = new Vue({
 				target: "_blank",
 				date: "November 2017",
 				description: "A REST-ful API for a dog social network. I created this as a fun way to explore building REST-ful API's and deploying products to AWS.",
-				tools: "Python | Flask | pytest | AWS",
+				tools: "Python | Flask | pytest | MongoDB | AWS",
 				id: "facebork-api"
 			},
 			{
