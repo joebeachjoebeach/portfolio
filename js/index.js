@@ -68,13 +68,13 @@ var app = new Vue({
 				id: "plan-your-week"
 			},
 			{
-				title: "Dog API Wrapper for Python",
-				url: "https://github.com/joebeachjoebeach/dog-api",
+				title: "Facebork API",
+				url: "https://github.com/joebeachjoebeach/facebork-api",
 				target: "_blank",
-				date: "October 2017",
-				description: "A Python wrapper for Dog CEO's <a href='https://dog.ceo/dog-api/' target='_blank'>Dog API</a>.",
-				tools: "Python | pytest",
-				id: "dog-api"
+				date: "November 2017",
+				description: "A REST-ful API for a dog social network. I created this as a fun way to explore building REST-ful API's and deploying products to AWS.",
+				tools: "Python | Flask | pytest | AWS",
+				id: "facebork-api"
 			},
 			{
 				title: "Microbe Log Microblog",
@@ -85,6 +85,15 @@ var app = new Vue({
 				description: "A whimsical Twitter-like microblog service that takes advantage of the fact that 'microblog' sounds like 'microbe log.'",
 				tools: "Python | Flask | PostgreSQL | JavaScript | HTML5 | SCSS | PostCSS",
 				id: "microbe-log-microblog"
+			},
+			{
+				title: "Dog API Wrapper for Python",
+				url: "https://github.com/joebeachjoebeach/dog-api",
+				target: "_blank",
+				date: "October 2017",
+				description: "A Python wrapper for Dog CEO's <a href='https://dog.ceo/dog-api/' target='_blank'>Dog API</a>.",
+				tools: "Python | pytest",
+				id: "dog-api"
 			},
 			{
 				title: "Game of Thrones Card Game",
