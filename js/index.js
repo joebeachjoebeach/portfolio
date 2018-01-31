@@ -52,7 +52,7 @@ var app = new Vue({
 				title: "Contributing to WoofJS",
 				url: "https://github.com/stevekrouse/woofjs/commits?author=joebeachjoebeach",
 				target: "_blank",
-				date: "January 2017 - present",
+				date: "January - August 2017",
 				description: "<a href='http://woofjs.com'>WoofJS</a> is a JavaScript framework for creating games with the HTML5 canvas. It's meant to be a stepping-stone from MIT's Scratch to \"real\" coding, making text-based coding more accessible to children and teenagers.",
 				tools: "Vue.js | ES6 | HTML5 | CSS3",
 				id: "woofjs"
@@ -180,11 +180,11 @@ var app = new Vue({
 		],
 		resume: [
 			{
-				position: "Attendee",
+				position: "Participant",
 				business: "Recurse Center",
 				url: "https://recurse.com",
 				location: "New York, NY",
-				date: "September 2017 - Present",
+				date: "September - December 2017",
 				description: [
 					"Learning back-end web development with Python and Flask",
 					"Diving deeper into back-end development through building a lightweight back-end web framework",
