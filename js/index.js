@@ -49,6 +49,16 @@ var app = new Vue({
 		section: "code",
 		coding: [
 			{
+				title: "Beat Bucket",
+				url: "https://joebeachjoebeach.github.io/beat-bucket",
+				gitHubUrl: "https://github.com/joebeachjoebeach/beat-bucket",
+				target: "_blank",
+				date: "February 2018",
+				description: "A browser-based music-making app with a unique interface. I've always loved using drum machines, but I wish they were better suited for making melodies. Beat Bucket combines a drum-machine-like interface with a sequencer to make something fun and useful.",
+				tools: "React | Redux | Tone.js | Python | Flask | PostgreSQL | Docker",
+				id: "beat-bucket"
+			},
+			{
 				title: "Contributing to WoofJS",
 				url: "https://github.com/stevekrouse/woofjs/commits?author=joebeachjoebeach",
 				target: "_blank",
