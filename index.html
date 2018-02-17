@@ -34,7 +34,6 @@
 			<div id="header-nav">
 				<button :class="{ current: section == 'code' }" @click="section = 'code'">Programming</button>
 				<button :class="{ current: section == 'music' }" @click="section = 'music'">Music</button>
-				<button :class="{ current: section == 'resume' }" @click="section = 'resume'">Resume</button>
 				<button :class="{ current: section == 'about' }" @click="section = 'about'">About</button>
 			</div>
 
@@ -66,44 +65,6 @@
 			</div>
 		</div>
 
-		<div class="content" :class="{ higher: shrink }" id="resume" v-if="section == 'resume'" v-cloak>
-			<div class="content-item" id="resume-skills" @mouseenter="fadeBg('resume-skills')" @mouseleave="unfadeBg('resume-skills')">
-				<div class="content-item-skill">
-					<span class="content-item-part-title"><u>Languages</u></span>
-				</div>
-				<div class="content-item-skill">
-					<p class="content-item-skill-p">{{ languages }}</p>
-				</div>
-				<div class="content-item-skill">
-					<span class="content-item-part-title"><u>Frameworks</u></span>
-				</div>
-				<div class="content-item-skill">
-					<p class="content-item-skill-p">{{ frameworks }}</p>
-				</div>
-				<div class="content-item-skill">
-					<span class="content-item-part-title"><u>Tools and Software</u></span>
-				</div>
-				<div class="content-item-skill">
-					<p class="content-item-skill-p">{{ software }}</p>
-				</div>
-			</div>
-			<div class="content-item" v-for="entry in resume" :id="entry.id" @mouseenter="fadeBg(entry.id)" @mouseleave="unfadeBg(entry.id)">
-				<div class="content-item-part">
-					<span class="content-item-part-title"><a :href="entry.url" target="_blank">{{ entry.business }}</a></span>
-					<span class="content-item-part-position">{{ entry.position }}</span>
-					<ul class="content-item-part-data">
-						<li>{{ entry.location }}</li>
-						<li>{{ entry.date }}</li>
-					</ul>
-				</div>
-				<div class="content-item-part">
-					<ul>
-						<li v-for="sentence in entry.description">{{ sentence }}</li>
-					</ul>
-				</div>	 			
-			</div>
-		</div>
-
 		<div class="content" :class="{ higher: shrink }" id="about" v-if="section == 'about'" v-cloak>
 			<div class="content-item" id="about">
 				<div id="content-item-blurb">
@@ -114,19 +75,13 @@
 						<span class="content-item-part-title"><u>Languages</u></span>
 					</div>
 					<div class="content-item-skill">
-						<p>{{ languages }}</p>
+						<p class="content-item-skill-p">{{ languages }}</p>
 					</div>
 					<div class="content-item-skill">
-						<span class="content-item-part-title"><u>Frameworks</u></span>
+						<span class="content-item-part-title"><u>Tools</u></span>
 					</div>
 					<div class="content-item-skill">
-						<p>{{ frameworks }}</p>
-					</div>
-					<div class="content-item-skill">
-						<span class="content-item-part-title"><u>Tools and Software</u></span>
-					</div>
-					<div class="content-item-skill">
-						<p>{{ software }}</p>
+						<p class="content-item-skill-p">{{ tools }}</p>
 					</div>
 				</div>
 			</div>

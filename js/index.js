@@ -188,63 +188,8 @@ var app = new Vue({
 				id: "cop-doctor"
 			}
 		],
-		resume: [
-			{
-				position: "Participant",
-				business: "Recurse Center",
-				url: "https://recurse.com",
-				location: "New York, NY",
-				date: "September - December 2017",
-				description: [
-					"Learning back-end web development with Python and Flask",
-					"Diving deeper into back-end development through building a lightweight back-end web framework",
-					"Learning, collaborating, and studying with others in a self-directed environment"
-				],
-				id: "resume-recurse"
-			},
-			{
-				position: "Curriculum Developer",
-				business: "The Coding Space",
-				url: "http://thecodingspace.com",
-				location: "New York, NY",
-				date: "Aug 2016 - June 2017",
-				description: [
-					"Teaching children to code with Scratch, WoofJS, JavaScript, HTML, CSS, and Lego Mindstorms",
-					"Developing curriculum for learning HTML, CSS, and JavaScript",
-					"Assisting with scheduling, teacher management, and training",
-					"Leading professional development sessions"
-				],
-				id: "resume-codingspace"
-			},
-			{
-				position: "ESL Teacher",
-				business: "OHC New York",
-				url: "http://www.ohcenglish.com/school/NEW_YORK",
-				location: "New York, NY",
-				date: "July 2012 - December 2016",
-				description: [
-					"Teaching ESL courses to teenagers and adults from around the world",
-					"Developing curriculum and original lesson plans",
-					"Leading professional development sessions"
-				],
-				id: "ohc"
-			},
-			{
-				position: "ESL Teacher",
-				business: "Berlin School of English",
-				url: "http://berlin.school-of-english.de/",
-				location: "Berlin, Germany",
-				date: "February 2011 - March 2012",
-				description: [
-					"Teaching ESL courses to adults in-company and at a private school",
-					"Developing original lesson plans and course curricula"
-				],
-				id: "bse"
-			}
-		],
-		languages: "JavaScript | Python | HTML5 | CSS3",
-		frameworks: "React | Redux | Vue.js | Flask | SASS",
-		software: "Git | npm | Adobe Photoshop",
+		languages: "JavaScript | Python | SQL | HTML5 | CSS3",
+		tools: "React | Redux | Vue.js | Flask | PostgreSQL | git"
 	},
 	methods: {
 		fadeBg: function(id) {
